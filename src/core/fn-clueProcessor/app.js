@@ -29,7 +29,14 @@ exports.lambdaHandler = async ( event ) => {
         console.log(JSON.stringify(identifiedclueEvent))
 
         // STEP 4: Publish to configured EventBridge Eventbus
-
+        params = {Entries: [{
+            Source:"com.aws.sentiment",
+            EventBusName: 'deparadepaardjes-htf-2021-IdentifiedClues',
+            DetailType:"post",
+            Detail: JSON.stringify(identifiedclueEvent)
+        }]}
+        var result = await eventbridge.putEvents(params).promise()
+        console.log("Published to eventbus: " + JSON.stringify(result))
         
         return "succesfully finished"
     } catch (err) {
@@ -55,13 +62,13 @@ async function analyseText(text) {
             TargetLanguageCode: 'en'
         };
 
-        var data =  await translate.translateText(paramsTranslateLanguage).promise()
+        var dataTranslatedText =  await translate.translateText(paramsTranslateLanguage).promise()
     }
 
     // STEP 3: Detect Sentiment
     var paramsDetectSentiment =  {
         LanguageCode: 'en',
-        Text: data.TranslatedText
+        Text: dataTranslatedText.TranslatedText
     }
     var sentiment = await comprehend.detectSentiment(paramsDetectSentiment, function(err, data) {
         if (err) console.log(err, err.stack);  
