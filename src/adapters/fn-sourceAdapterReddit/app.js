@@ -37,11 +37,7 @@ exports.lambdaHandler = async ( event ) => {
                 Source:"com.reddit.listing",
                 EventBusName: 'deparadepaardjes-htf-2021-reddit',
                 DetailType:"post",
-                Detail: JSON.stringify({
-                    id: post.id,
-                    text: post.title,
-                    author_fullname: post.author_fullname
-                })})
+                Detail: JSON.stringify(post)})
             } else {
                 let params = {Entries: entries}
                 var result = await eventbridge.putEvents(params).promise()
