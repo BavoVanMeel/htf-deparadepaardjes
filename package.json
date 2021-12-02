@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "axios": "^0.24.0",
+    "ms-teams-webhook": "^1.0.4"
+  }
+}
