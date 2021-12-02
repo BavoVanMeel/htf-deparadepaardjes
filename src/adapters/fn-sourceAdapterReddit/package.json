@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "reddit": "^1.2.1",
-    "snoowrap": "^1.21.0"
+    "snoowrap": "^1.23.0"
   }
 }

@@ -8,11 +8,11 @@ Parameters:
     WebhookSiteUrl:
         Type: String
         # Replace with your webhook.site url
-        Default: "https://webhook.site/edace593-0132-4bf9-8bf9-5142b13f345e"
+        Default: "https://webhook.site/#!/4347d9e1-41d7-41e0-b0d0-3d65da51177f/d43ce1b6-101c-4ee5-a1cb-7e1a19386bb5/1"
    
     IdentifiedCluesEventBusName:
         Type: String
-        Default: "<your identified clues eventbus arn"
+        Default: "deparadepaardjes-htf-2021-IdentifiedClues"
 
   
 Resources:

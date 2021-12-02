@@ -6,13 +6,13 @@ Description: >
 Parameters:
 
     IdentifiedCluesEventbusArn:
-        Description: Name of the eventbridge bus which you created manually in the AWS web console
-        Default: "<your identified clues eventbus arn"
+        Description: deparadepaardjes-htf-2021-IdentifiedClues
+        Default: "arn:aws:events:eu-central-1:128894441789:event-bus/deparadepaardjes-htf-2021-IdentifiedClues"
         Type: String
 
     RedditEventbusName:
-      Description: Name of the eventbridge bus which you created manually in the AWS web console
-      Default: "<your reddit eventbus arn"
+      Description: deparadepaardjes-htf-2021-reddit
+      Default: "deparadepaardjes-htf-2021-reddit"
       Type: String
 
 

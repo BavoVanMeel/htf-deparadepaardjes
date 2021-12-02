@@ -6,8 +6,8 @@ Description: >
 Parameters:
     
     EventbusArn:
-        Description: Arn of the Amazon EventBridge bus to which events are published to be processed.
-        Default: "<your reddit eventbus arn"
+        Description: deparadepaardjes-htf-2021-reddit
+        Default: "deparadepaardjes-htf-2021-reddit"
         Type: String
     
   
