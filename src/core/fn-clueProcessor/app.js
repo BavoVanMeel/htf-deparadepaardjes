@@ -39,7 +39,6 @@ exports.lambdaHandler = async ( event ) => {
 };
 
 async function analyseText(text) {
-
     //  STEP 1: Detect language
     var paramsDetectLanguage =  {
         Text: text
@@ -56,23 +55,20 @@ async function analyseText(text) {
             TargetLanguageCode: 'en'
         };
 
-        await translate.translateText(paramsTranslateLanguage, function(error, data) {
-            console.log("translating")
-            if (error) {
-                console.log(error)
-                return
-            }
-            if (data) {
-                console.log("TEXT:" + data.TranslatedText)
-            }
-        }).promise()
-    } 
+        var data =  await translate.translateText(paramsTranslateLanguage).promise()
+    }
 
     // STEP 3: Detect Sentiment
+    var paramsDetectSentiment =  {
+        LanguageCode: 'en',
+        Text: data.TranslatedText
+    }
+    var sentiment = await comprehend.detectSentiment(paramsDetectSentiment, function(err, data) {
+        if (err) console.log(err, err.stack);  
+    }).promise()
 
-    
     return {
         detectedLanguage: detectedLanguage.Languages[0].LanguageCode,
-        sentiment: "TODO"
+        sentiment: sentiment.Sentiment
     }
 }
