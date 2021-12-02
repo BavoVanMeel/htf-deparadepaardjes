@@ -48,13 +48,31 @@ async function analyseText(text) {
     console.log("Detected languages: " + JSON.stringify(detectedLanguage))
 
     // STEP 2: Translate to english if language is not supported
-    
+    if (!supportedLanguages.indexOf(detectedLanguage) > -1) {
+        // Language not supported: translate to english
+        var paramsTranslateLanguage = {
+            Text: text,
+            SourceLanguageCode: detectedLanguage.Languages[0].LanguageCode,
+            TargetLanguageCode: 'en'
+        };
+
+        await translate.translateText(paramsTranslateLanguage, function(error, data) {
+            console.log("translating")
+            if (error) {
+                console.log(error)
+                return
+            }
+            if (data) {
+                console.log("TEXT:" + data.TranslatedText)
+            }
+        }).promise()
+    } 
 
     // STEP 3: Detect Sentiment
 
-
+    
     return {
-        detectedLanguage: "TODO",
+        detectedLanguage: detectedLanguage.Languages[0].LanguageCode,
         sentiment: "TODO"
     }
 }
