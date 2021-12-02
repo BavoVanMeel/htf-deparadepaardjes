@@ -6,8 +6,8 @@ Description: >
 Parameters:
     
     EventbusArn:
-        Description: deparadepaardjes-htf-2021-reddit
-        Default: "deparadepaardjes-htf-2021-reddit"
+        Description: Arn of the Amazon EventBridge bus to which events are published to be processed.
+        Default: "arn:aws:events:eu-central-1:128894441789:event-bus/deparadepaardjes-htf-2021-reddit"
         Type: String
     
   
@@ -31,7 +31,7 @@ Resources:
         CWSchedule:
             Type: Schedule
             Properties:
-                Schedule: 'rate(30 minutes)'
+                Schedule: 'rate(5 minutes)'
       Policies:
         - Statement:
           - Effect: Allow
