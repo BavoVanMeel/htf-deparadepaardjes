@@ -8,7 +8,7 @@ Parameters:
     WebhookSiteUrl:
         Type: String
         # Replace with your webhook.site url
-        Default: "https://webhook.site/4347d9e1-41d7-41e0-b0d0-3d65da51177f"
+        Default: "https://hooks.slack.com/services/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"
    
     IdentifiedCluesEventBusName:
         Type: String
